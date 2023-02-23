@@ -1,0 +1,382 @@
+
+Link to join slack : https://join.slack.com/t/awswithavinash/shared_invite/zt-1pttsgyk1-uQdXwQFn7XFvkFVbiZY2aA
+
+_____________________________________________________________________________________
+
+S3 : Simple Storage Service :
+-
+Object based storage :  We cannot install/run any applications/os. : Dropbox / GDrive 
+--> Designed to flat files.
+
+Block based storage : Designed to run OS, We can install/run applications.. : EBS, Instance store volumes. : EC2 
+Storage over the network : Storage runs over the network and it can be mounted to multiple devices. : EFS, FSx : EC2
+
+--> Designed to store objects. We can store any flat files.
+--> We store data in BUCKETS.
+--> Bucket names should be unique across the globe.
+--> Defualtly, we can create 100 buckets, This is a soft limit.
+--> We can store unlimited data in a bucket.
+--> No Pre-provisioning required.
+--> Bucket naming limitations.
+	--> Min char 3, Max 63 char length
+	--> Bucket name should be in small , and numeric
+	--> Bucket name should not start with .
+	--> Should not end with . , No adjesent ..
+	--> Bucket name should not resemble IP address format. (192.168.100.1)
+
+--> We can upload objects to this buckets.
+--> Min obj size : 0 bytes.. Max Obj size: 5 TB
+--> S3 is a global service. Doesn't required region selection.
+--> While creating we need to choose the region. Data physically resides at this regions AZs. 
+
+https://s3.ap-south-1.amazonaws.com/bucketname/objectname (standard URL)
+https://bucketname.s3.ap-south-1.amazonaws.com/objectname (virtual path)
+https://bucketname.s3.amazonaws.com/objectname (virtual path)
+
+Virtual paths won't work if we have . in bucket names.
+
+To make an object public : 
+
+1. Block Public Access settings for this account : Account Level Blocking
+2. Block public access (bucket settings) : Bucket level Blocking
+--> We should make an object public, then only Object URLs works.
+** Object Ownership : ACLs enabled
+3. Make object public. (Select object --> actions --> last option --> make public using acl)
+
+S3 Free Tier ELigibility : 
+5 GB Standard Storage
+--> 2000 PUT (Upload) / 20,000 GET (Download)
+_______________________________________________________________________________
+
+
+GDrive : 100 gb plan						S3	: no pre provisioning req
+
+20 gb Daily									S3-Standard
+20 gb Infreq 								Standard-IA / OneZOne-IA
+10 gb don't know when to access				Intelligent Tier
+10 gb archive								Glacier / Glacier-DA
+
+30gb
+
+99.99% Ava
+99.999999999 % Durability
+
+
+S3 Storage Classes : 
+
+--> S3 Standard : Defualt storage class for all the data we upload to s3. Data will be available immedeatly.
+Designed to store : Frequently accessed data. 
+Availability : 99.99%,  Durability: 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Standard-IA : Data will be available immedeatly. Designed to store : infrequently accessed data
+Avai : 99.9%, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> One Zone-IA : Data will be available immedeatly. Designed to store : infrequently accessed data. Store only non-critical data
+Avai : 99.5 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : 1 AZs
+
+--> Glacier Flexible Retrieval (Formerly Glacier) : Long-term data archiving with retrieval times ranging from minutes to hours. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (1 min - 5 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Glacier Instant Retrieval : Long-lived archive data accessed once a quarter with instant retrieval in milliseconds. 
+
+--> Glacier Deep Archieve : Long-term data archiving with retrieval times ranging from 12 hrs. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (5 - 12 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+..
+S3 Intelligent Tier : If we have unknown access pattern, we can choose. 
+Avai : 99.9 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+RRS : Redused Redundancy Storage : Not Recommanded : Less durability.. 
+Durability : 99.99%, As we have less durability we have high chances to loss the data when compared to another storage classes.
+
+
+S3 Pricing : 
+--> How much data we are storing.
+--> How many GET/PUT operations (uploads/downloaded object count)
+--> Data retrivals
+
+Glacier data retrival : 
+Bulk retrieval : Typically within 5-12 hours.
+Standard retrieval : Typically within 3-5 hours.
+Expedited retrieval : Typically within 1-5 minutes when retrieving less than 250 MB.
+
+______________________________________________________________________________________
+
+Task : 
+--> Enable "Free tier alerts". Login using root user/iam user with admin permissions..
+Preferences --> Billing preferences --> Receive Free Tier Usage Alerts --> Enable and enter valid email address.
+
+Task 2 : Create an s3 bucket, Upload an object, Make object public accesable.
+
+________________
+
+If you are typing "Delete" ==> you'll get delete Marker. 
+If you are typing "perm Delete" ==> You wont get Delete marker.
+
+Delete the "Delete Market" to get your object back.
+
+_________
+
+Version : AWS maintains multiple copies in s3 bucket. 
+--> Defaultly versioning will be in Suspended state.
+
+--> When versioning is enabled on bucket, If we delete an object
+
+Versioning : HIDE
+--> S3 will show most recent uploaded object only / Current version objects.
+--> We will get a Delete Marker. 
+--> TO get object back / undo delete, Set Version to SHOW, Delete the delete marker.
+
+Versioning : SHOW
+--> If we delete an object, it deletes permanently.
+_____________________________________________________________________________________
+
+
+
+
+
+Life Cycle Management Rule : 
+--> We can apply Rule to entire bucket
+--> We can limit rule to a prefix (Folder)
+--> We can limit rule to objects by specifing a "Tag"
+
+
+S3 Standard --> StandardIA/IT --> Glacier --> Delete
+S3 Standard --> Glacier --> Delete
+S3 Standard --> Delete
+ 
+____________________
+
+CRR / SRR : 
+--> Source bucket and destination bucket must be enabled with versioning. 
+--> Existing objects will not replicate to the destination bucket.
+--> All future / subsequent uploads will replicate to destination bucket. 
+
+RTC : Replication time control : Data replicates to destination bucket with in 15 Min. (99.99% of the data) : COST US
+
+___
+
+Data transfer from One region to another region "cost us".
+Data transfer within a region won't cost us anything.
+_______________________
+
+aws s3 sync s3://source targetpath		==> 12:00AM   (task scheduler / cron job)
+_______________________
+
+Task : Create a bucket in mumbai, Configure Versioning. 
+Create another bucker in Mumbai region only.. configure same region replication between these buckets.
+
+Task 2 : Create a Life CYcle management rule to transit current version objects from s3 standard to Delete after 2 Days.
+Transit previous version objects to Delete after 1 Day.
+
+Task 3 : Create a policy to allow everything in an AWS account, But user should be able to create a bucket in "ap-south-1" region only.
+--> Create a bucket in "mumbai", it should work... But if he try to create bucket in any other region it should fail.
+
+1. Create a policy allow anything but only on mumbai region. (copy policy from AdministratorAccess)
+2. Create an IAM user and allocate Newly created policy
+3. Login as IAM user, Navigate to S3, Try to create a bucket in mumbai, should allow.. SHould deny if you choose any other region.
+________________________________________________________________________________________________
+
+
+S3 Static Website Hostic : 
+
+--> We need to make data public read, then only our website will deliver. 
+--> Purchased Domain name should be same as Bucket name. 
+http://learnaws.co.in.s3-website.ap-south-1.amazonaws.com  ==> learnaws.co.in
+
+http status codes :
+2XX : OK/Success
+3XX : Redirection
+4XX : Client sider error
+5XX : Server sider error
+
+
+Task : Download a template from Internet. Deliver the webiste using s3 - static webiste feature.
+
+________________________________________________________________________________________________
+
+
+--> In-Transit Encryption : 
+	SSL (Secure socket layer) / TLS (Transport layer secure)
+
+--> SSE (Server Side Encryption) / At-rest : 
+
+SSE-S3 : S3 platform generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. (An encryption key that Amazon S3 creates, manages, and uses for you). AES-256
+
+SSE-KMS : Key Management Service : 
+	KMS (AWS managed keys) (aws/s3) DMK (Default Master Key) : KMS Service generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. We cannot delete these keys. 
+	 CMK (Customer managed keys) : KMS Service generates and manages the keymaterial.
+Along with S3 platform, the IAM user need to have valid permissions on ENCRYPTION KEY also. NO FREE TIER ELIGIBILITY.
+	SSE-C (Customer Provided Key): Customer generates and upload the key material to KMS and KMS uses this key material to encrypt/decrypt the data. Customer can change the key material at any time. NO FREE TIER ELIGIBILITY.
+
+--> CSE (Client Side Encryption) : 
+Before uploading data to s3 platform, we can use our own software/applications to encrypt the data. That encryptrd data we can send to s3. AWS is not completely responsible for this mechanism.
+
+Encryption key generation : 
+--> Choose key type : Symmetric /Asymetric : Symetric as s3 supports
+--> Choose key Administrator
+--> Choose Key Users
+--> Review and create
+
+____________________________________________________________________________
+
+Task : Create an IAM user, provide S3 full access. Restrict him to work only on "mumbai region". 
+
+Task 2 : Enable Encryption on s3 bucket and test it. (SSE-S3/AWS Managed key)
+
+
+___________________________________________________________________________
+
+Server access logging : enable logging on bucket.
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
+
+Cloudtrail : Data events : It allow us to log all s3 activities (Current buckets and future buckets).
+____________
+
+Event notifications : 
+
+--> SNS : Simple Notification Service : 1000 EMAILs Free Tier eligibility
+--> SQS : Simple Queue Service
+--> Lambda 
+
+--> Make sure you edit the SNS topic's "Access Policy to everyone".
+
+____________
+
+
+Task : Create an S3 Bucket, Create an SNS topic add a subscriber.. Configure Events on s3 to trigger an email when Object creation and deletion happend.
+
+_______________________________________________________________________________
+
+Deny upload object operation on a particular bucket. : Bucket policy
+
+Bucket ARN : arn:aws:s3:::avinash.bucket
+IAM User ARN / Principal : arn:aws:iam::501170964283:user/s3user
+Effect : Allow / Deny : Deny
+Action / Operation : PutObject, DeleteBucket
+
+
+Object level / Inside bucket possible operation : arn:aws:s3:::avinash.bucket/*
+Bucket level : arn:aws:s3:::avinash.bucket
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html#example-bucket-policies-use-case-3
+
+
+
+arn:aws:s3:::09012023.awsdemo,
+arn:aws:s3:::09012023.awsdemo/*
+
+___________________
+
+Task : Try to access s3 using 3rd party applications. (S3 browser, Cyberduck, Cloudberry explorer, winscp)
+
+Task 2 : What is presigned URL. Configure an object to generate a presign url to expire after 60 sec.
+
+Task 3 : Complete the one bucket task / Region restriction / MFA task.
+
++++++++++++
+Requirement : IAM user has its s3 bucket, he need to get access on his own bucket. : IAM Policy
+https://s3.console.aws.amazon.com/s3/buckets/bucketname
+
+Requirement : Create an IAM user, Create a bucket for this user... Now, This user should get access only on his specific bucket..
+He should not able to view all the s3 buckets.+++++++++
+
+Task 4 : Create an IAM user.. Provide him S3FullAccess.. But on a specific bucket Deny him to perform "DeleteObject, DeleteBucket, PutObject, getbucketpolicy"
+____________________
+
+
+Requester pays : the requester pays for requests and data transfer costs, and anonymous access to this bucket is disabled. Instead of bucket owner data requester need to pay for the data transfer & request.
+--> Anonomus access disables once we enable this feature.
+_______
+
+Transfer acceleration : Uses Edge locations for data transfer. (COST US)
+S3 Transfer Acceleration is not supported for buckets with periods (.) in their names
+
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=avinash2
+
+Object Lock : 
+--> Versioning must be enabled.
+Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+_____
+
+Performance : 
+3500 PUT Object per second per prefix
+5500 GET Object per second per prefix
+
+--> Increase the uniqueness for the object names.
+--> Use more prefixes
+
+________________________________________________________________________________________
+
+
+
+Pricing : https://calculator.aws/
+Free Tier : https://aws.amazon.com/free
+
+
+Storage Class Analysis : Analyze storage access patterns to help you decide when to transition objects to the appropriate storage class. 
+
+Cross-origin resource sharing (CORS)
+The CORS configuration, written in JSON, defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
+
+________________________________________________________________________________
+
+FOr Put of new object, "read after write consistency". (If upload success, we can start accessing the data without any delay)
+Eventual consistenacy For overwrite an object / delete an object. (AFter delete shown as success, we may get response for the request for some milli seconds) (You have uploaded object with latest data and trying to access, you have chances to get previous data object) 
+
+__________________
+
+How to access s3 using 3rd party applications.!!
+Ans : S3 Browser, CyberDuck, WinSCP, CLoudberry explorer
+
+https://www.msp360.com/explorer/windows/amazon-s3.aspx
+
+
+Task : Try any of the s3 supported 3rd party application. 
+
+________________
+
+If we have larger file to uploade to s3 paltform, We can initiate the "Multi Part Upload". 
+
+_________________
+
+AWS Snow Family : 
+--> AWS snowcone : 8 TB
+--> AWS Snowball : 100 TB
+--> AWS Snowball edge : 40 - 100 TB
+--> AWS Snow mobile : PB scale container
+
+1 pb data, 1 gbps internet line with 80%.. 20-25 yrs
+
+___
+
+AWS Direct Connect : Dedicated connection between on-premise/local environment to AWS environment. 3-4 weeks time required. We need to choose the required bandwidth. 
+--> Airtel, jio, sify
+
+Site-to-site VPN : 
+
+--> Storage classes
+--> Versioning
+--> LCR
+--> CRR/SRR
+--> Encryption
+--> Bucket policy
+
+
+
+https://aws.amazon.com/premiumsupport/knowledge-center/s3-console-access-certain-bucket/
+
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=us-east-1&origBucketName=avinash
+

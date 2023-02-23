@@ -1,0 +1,659 @@
+
+Cloud Computing : 
+Day-1  https://youtu.be/Mi5Ubd17qok
+Day-2 https://youtu.be/sIW6cCJw16Q
+Day-3 https://youtu.be/fM_NbQhkKMQ
+
+AWS : 
+Day-1 https://youtu.be/oFH2KhjVLYo
+Day-2 https://youtu.be/O_XZe-eo4YA
+Day-3 https://youtu.be/meOWF9mv6iQ
+Day-4 https://youtu.be/NoKyk_o_0h8
+Day-5 https://youtu.be/oYa1IN9eVqg
+
+
+https://avinash.s3.amazonaws.com/aws.pdf
+
+CC : Dropbox.. GDrive..
+
+Laptop / Mobile : Uploading the data to GDrive/Dbox.. : We can access this data anywhere from the world.. (Internet) : Another user : Storage
+
+
+Cloud COmputing : COmputing resources : (Network, Storage, Servers, Database) : 
+Pay-as-you-go : Pay for the resources you actually used
+
+Server : 1 Hr : --> 1 Hr only
+GDrive : 100gb plan / 200 gb / 1 TB 
+
+Tenancy : 
+--> Shared : underlying h/w shared with another customers
+--> Dedicated : Underlying h/w won;t share with another cust.. Dedicated to same user.
+
+
+Physical Server : COmpatability 
+Virtual Server : Upgrade / Downgrade
+
+Core Infra Services : Compute, Storage, Network, Hosting, Database, IAM, Security, Application, Migration
+
+
+Email Server : Exchange Server : 
+Gmail : internet
+
+CAPEX : Capital Expendature : No Capital Expen : No Upfront : 
+OPEX : Operational Expendature : Less OPEX : 
+
+100 : small server : deliver
+10k : medium server : 
+100M : Large 
+
+Pay-as-you-go : 
+Pay-as-you-grow : 
+
+_________________________________________________________________________________________________________________________
+
+
+D: 09/02/2023
+
+Cloud Deployment models : 
+
+Public Cloud : open for all.. Maintenance : Service provider.. : AWS, Azure, GCP.. 
+
+Private Cloud : Dedicated for one org users.. using corp credentials, they can env.. 
+main : org maintain dedicated team.. / 3rd party org.. 
+
+Hybrid Cloud : Combination of multiple cloud platforms.. Pub + pub / pub + pri / pri + pri.. 
+
+Server in AWS + Server in Azure ==> Can we enable communication..?? : YES
+Your org owned a Data Center + AWS ==> YES
+--> Site-to-site-VPN connection / AWS Direct Connect / AWS outpost
+
+Community Cloud : Group of org, Pool the money and build the DC.. Only that group of org allowed to use this resources.. 
+main : org from community / 3rd party org.. 
+
+__________________________________________________________________________________________
+
+D: 10/02/2023
+
+Service Models of Cloud computing : 
+
+--> SaaS : Software as a Service
+--> PaaS : platform aa Service
+--> IaaS : Infra aa Service
+
+
+Data --> developer
+middleware/runtime --> application admin / middleware
+OS --> wintel/unix / system admin
+Virtulisation --> vmware/citrix
+Servers --> wintel / system engineers
+Database --> dba
+Storage --> storage admin
+Network	--> network team
+
+
+cooling
+isp
+power
+Place
+
+=============================================================
+
+AWS @ 7:30 AM (IST) by Mr. Avinash
+Day-1  https://youtu.be/Mi5Ubd17qok
+Day-2 https://youtu.be/sIW6cCJw16Q
+
+___________________________________________
+
+Course: AWS
+Time: 7:30am
+Faculty: Mr. Avinash
+
+Course Fees without videos: ₹8000/-
+Course Fees with videos: 12000/-
+Course Duration: 45 sessions 
+
+*Online student one time payment no installments Please.*
+
+*Bank Details*
+Name: Naresh i Technologies
+A/C No. 50200022639833     
+Bank: HDFC
+A/C Type: Current Account
+IFSC Code: HDFC0001627
+MICR Code: 500240035
+Branch Code: 001627
+Branch:  Ameerpet
+
+Note: If you want to use Phonepe or Google Pay then follow the below steps.
+
+You can find the option Bank Transfer in Phonepe and Google pay. There you can enter our bank account number and you can transfer the amount.  Please mention your Name on the receipt and send a email once the payment is done to support@nareshit.com.
+  
+For any Queries, You can Reach us on email support@nareshit.com 
+
+Please share your feedback to Mr. Rajesh NIT Admin 
+
+Thanks and Regards
+Rajesh NIT Admin 
+7997997808
+(WhatsApp chat only)
+
+_____________________________________
+
+Dear Students, 
+Fill in the details given below along with payment screenshot or receipt:
+
+Full Name:
+Email ID:
+Contact no:
+Course Name:
+Batch Timings:
+Faculty Name:
+
+And send it to 7997997808 (on WhatsApp) and support@nareshit.com for payment confirmation.
+
+
+_______________________________________________________________________________________________________________
+
+D: 13/02/2023
+
+Region : Geographical location / physical location : 31 (Feb, 2023). Every region contains multiple AZs. (min 2)
+AZ / Availability zone : DC / COmbination multiple DCs.. 99 AZs across globe.. 
+PoP (point of Presence) / Edge Location : CDN (content delivery network).. We can deliver data/application with low latency.. It cache the data at customer nearby locations. 
+
+
+__________________________________________________________________________________________________
+
+D: 14/02/2023
+
+
+Cloud COmputing : 
+
+How to Create an AWS account and first steps.
+
+IAM : Identity and Access management : How to manage users.. Create, Provide and manage access on aws services.. 
+S3 : Simple Storage Service : Storage service in AWS.. We can store any data.. AWS version of Google Drive..
+EC2 : Elastic Compute Cloud : We launch/manage servers.. : Instance/Virtual machine/Engine/Azure vm : Server
+VPC : Virtual private Cloud : Networking part in AWS.. : Ip address (public/private), ip4 classes, Subnet calc.. 
+RDS : Relational Database Service : Database as a Service : mysql/mssql/oracle/postgre/maria/aurora.. 
+Route53 : AWS DNS Service : Map IPs to FQDN (Fully Qualified Domain Names) and vice versa.. 
+Security & Monitoring & Logging  : cloudwatch, cloudtrail, config, WAF, KMS (encry/decry), Trusted advisor..  
+Developer Service : Lambda, Cloudformation, Cloud9, CDK (Cloud development kit), cli, Containers : ECR Elastic container registry / ECS.. 
+General : Resume, Interview, Project.. 
+
+
+Free Tier : From day of your account creation, First 12 Month, Trying services service wont cost us.. 
+
+IAM : Always free
+S3 : 5 gb free storage.. 
+ec2 : t2.micro (1 cpu, 1 RAM).. Windows x 750 Hrs / Month... Linux x 750 hrs / Month.. 
+VPC : free
+RDS : db.t2.micro.. 750 Hrs/ Month.. 
+
+31 x 24 hrs = 744 hrs.. 750 hrs.??? : 1 Server x 31 Days.. 6 hrs left.. 
+
+2 Servers.??? 1 Day = 48 Hrs.. : 16 Days..!! 
+
+___________________
+
+How to create an AWS Account : 
+
+navigate to this URL : aws.amazon.com/free
+create a free aws account
+
+Root user Email Address : Give a valid and accesable email address.. 
+provide Account Name : Give any name..
+
+Login to your given email box and click on verification link.. 
+
+Step 2 : provide Contact information.. 				
+Name, Address.. 
+
+Step 3 : providing payment information..
+Visa/Master card/AMEX/Discovery
+
+Step 4 : Identity verification..
+--> phone verification : get a call from aws.. Answer the call.. You'll get XXXX, enter this digits in call..
+--> sms/email verification 
+
+Step 5 : Choose Support Plan : Choose BASIC Support Plan.. Dont select any other support plan.. 
+
+1). Account and billing related Assistance
+2). Technical Assistance
+
+Basic SP : cost : Free.. No Support from AWS.. Get support from AWS Developer Forums (AWS Re:post) / Knowledge base Articles.. 
+1) You can raise 1 categery support case (Account and Billing related), 24x7, 365 Days...
+2) No technical Assistance
+--> AWS Trusted Advisor : 7 core area checks..
+https://aws.amazon.com/premiumsupport/knowledge-center/
+https://repost.aws/
+
+Developer SP : cost : 29$/Month.. 
+1) 24x7, 365 Days for Account and Billing related issues
+2) only 1 user can raise support tickets.. He can raise any no of tickets.. within 12-24 Local business hours (8 AM - 8 PM).. One of the AWS Associate engineer.. email support.. 
+Case Severity : 
+general guidance : 24 Hrs
+System impaired : 12 hours
+--> AWS Trusted Advisor : 7 core area checks..
+
+
+Business SP : cost : 100$/Month.. 
+1) 24x7, 365 Days for Account and Billing related issues
+2) Any user can raise support tickets.. We can raise any no of tickets.. within 1 hr .. One of the AWS System engineer.. 24x7 Support.. phone, chat and email support..
+Case Severity : 
+general guidance 				: 24 Hrs
+System impaired 				: 12 hours
+Production system impaired 		: 4 hrs 
+Production system down 			: 1 hr
+--> AWS Trusted Advisor : complete checks..
+
+
+Enterprise SP : 15,000 $/Month.. 
+1) 24x7, 365 Days for Account and Billing related issues
+2) Any user can raise support tickets.. We can raise any no of tickets.. within 15 Min.. One of the AWS Sr. System engineer.. 24x7 Support.. phone, chat and email support..
+Case Severity : 
+general guidance 				: 24 Hrs
+System impaired 				: 12 hours
+Production system impaired 		: 4 hrs 
+Production system down 			: 1 hr
+Business-critical system down 	: 15 Min
+
+--> AWS Dedicated TAM (Technical Account Manager)
+--> AWS Annual Operational and Architectural reviews
+--> AWS Dedicated trainings
+--> AWS Trusted Advisor : complete checks..
+
+
+** Former categery : 3) Service Limit Increase : It become a new service : "AWS Service Quotas".. 
+
+
+Step 6 : Review and login..
+
+root user : When you login using email address, that used to create your aws account. He will have unrestricted access on AWS account. 
+______________________________________________________________________________________________________
+
+Enable MFA for Root User : Login as root user and navigate to "Security credentials", on top right corner.. 
+
+Multi Factor Authentication : 
+
+--> Virtual MFA : Google Authenticator, Authy 2 factor, Microsoft authenticator.. 
+--> hardware MFA : 
+--> u2f / Yuby 2 Key : 
+
+_________________________________________________________________________________________________________
+
+Requirement : 
+root user : unrestricted access on aws env.. : Dont use this for day to day activities.. 
+
+If we give "root cred" to all these users.?? NO
+
+Least privilages mechanism : provide only required permissions to perform his job : 
+
+AWS Administrator : IAM user with his username : Full access on AWS env.. : root
+DBA : IAM user his username : RDS..  root
+Storage : Iam user his username : S3 : root
+
+
+Step 1 : provide username : "S3_Admin"
+Access type; Console Access.. Password and Sign-in URL
+
+Step 2 ; provide required permissions.
+
+Groups : Create a group, add permissions at group level and add this user to group.
+COpy permissions from another user : 
+Attach permissions directly : 
+
+Step 3: review and create user. 
+
+Policy : Set of permissions on our aws environment. 
+AWS managed policy : 
+AWS managed policy - Job function :
+Customer managed policy : 
+
+
+IAM user with Administrator Access = same as root user without account management permissions.
+
+
+================================================================================================
+
+Task 1 : create an AWS account and make it fully activated.
+
+Task 2 : Activate MFA for root user. Set alia for your root account.
+
+Task 3 : Create an IAM user, Allocate "S3FullAccess" to this user, Login as S3_user and verify his access on s3 service, Iam service & ec2 service. (He should be able to access only s3)
+
+Task 4 : Create an IAM user(Username : ec2_user), Allocate "EC2FullAccess" to this user, Login as ec2_user and verify his access on s3 service, Iam service & ec2 service. (He should be able to access only ec2)
+____________________________________________________________________________________
+
+D: 17/02/2023
+
+Policy : Set of Permissions on our aws account. Policy writtens in JSON format.
+--> AWS Managed - Job Function
+--> AWS Managed Policy
+--> Customer Managed Policy
+
+
+Password policy : 
+
+__________________
+
+Policy : Document contains set of permissions writtens in JSON format. Policy provide permissions on AWS resources for users/groups/roles.
+
+--> AWS Managed Policy : s3 (full, reaonly), ec2 (ec2read, moniroting, full)
+--> AWS Managed policy - Job Functions : Network Admin, Database Admin
+--> Customer Managed Policy : 
+
+Inline : Not a reusable policy. We can apply policy for specific resource.
+
+Requirement : IAM User required Full Access on AWS services, But not on "S3".
+
+**Deny always have highest privilages. If you all 100 times, but deny 1 times at any level, DENY will take effect. 
+
+S3 and EC2 Full Access As a single policy : 
+
+Task : Create a Policy to Activate MFA, if we associate this policy to an IAM user. 
+--> Create an IAM user, provide him "S3FullAccess"... Click on "security credentials", Go to Activate MFA option.. "Deny"... create a policy to allow only this particular operation.
+-> After associting this policy to S3user, it should allow him to enable/disable MFA.
+
+
+
+
+===========================================================================================
+
+
+
+
+--> AWS Managed Policy : Policy provided by AWS, Based on Service.
+--> AWS managed - Job function policy : policy provided by AWS, It is a combination of multiple Services. AWS provided this based on some standard jobs available in market.
+--> Customer Managed policy : 
+
+AdministratorAccess : He can access on all aws services.
+PowerUser : Adminstrator access - IAM + Apart from user management he is equal to admin user.
+readonly : he will get readonly access on all aws services. 
+
+
+CLoudTrail : Logging service in AWS. It logs everything (including refresh also).
+--> Enabled by default. We dont have option disable it. 
+--> Defaultly it can store last 90 days logs.
+
+
+Requirement : Create an IAM user, Give him "S3FUllAccess", Create a S3-Deny polic and asociate. test it. ==> Deny Taking effect.
+
+Requirement : I Need an IAM user, Who have AdministratorAccess, but no access to ec2.
+
+
+Task 1 : Create an IAM user, Provide him "AdministratorAccess" policy. Now try to access "Billing Dashboard". It gives error. 
+Fix this error and provide him billing access.
+
+Task 2 : I need an IAM user who have "Administrator Access", But no permissions on s3.
+
+Task 3 : Create a custom policy to activate MFA for IAM users. 
+	Create an IAM user, provide S3FullAccess. Now try to activate MFA. It will give error. Fix this errors and allow him to activate MFA.
+
+========================================================================================================
+
+D: 20/02/2023
+
+Credential report : 
+
+S3 : Simple Storage Service : AWS Version of Google Drive.. 
+
+Object Based : Designed to store flat files : S3
+Block Based : zDesigned to run OS/ Install applications : EBS
+Storage over network : SAN / NAS : EFS
+
+Storage over network :
+
+
+No Pre-Provisioning.
+
+S3 Standard : Freq accessed data, When you need data, it available immediately
+Availbility : 99.99%.. Durability : 99.999999999%
+
+
+Standard IA/ OneZone IA : Infreq accessed datra, When you need data, it available immediately
+Standard IA : AWS maintains >= 3 copies.
+OneZone-IA : Only 1 AZ contains data..
+
+
+Glacier / Glacier DA : Less freq data, When we need we cant access it. We need to restore if we want to access. 
+IT Intelligent-Tier : Whenever we are not sure about the access patterns.
+
+ 
+Based on Customer/client access pattern : We choose storage classes.
+1. How many times you are accessing data
+2. When you need data, are you able to access it without delay or with delay. 
+
+
+
+Link to join slack : https://join.slack.com/t/awswithavinash/shared_invite/zt-1pttsgyk1-uQdXwQFn7XFvkFVbiZY2aA
+
+_____________________________________________________________________________________
+
+S3 : Simple Storage Service :
+-
+Object based storage :  We cannot install/run any applications/os. : Dropbox / GDrive 
+--> Designed to flat files.
+
+Block based storage : Designed to run OS, We can install/run applications.. : EBS, Instance store volumes. : EC2 
+Storage over the network : Storage runs over the network and it can be mounted to multiple devices. : EFS, FSx : EC2
+
+--> Designed to store objects. We can store any flat files.
+--> We store data in BUCKETS.
+--> Bucket names should be unique across the globe.
+--> Defualtly, we can create 100 buckets, This is a soft limit.
+--> We can store unlimited data in a bucket.
+--> No Pre-provisioning required.
+--> Bucket naming limitations.
+	--> Min char 3, Max 63 char length
+	--> Bucket name should be in small , and numeric
+	--> Bucket name should not start with .
+	--> Should not end with . , No adjesent ..
+	--> Bucket name should not resemble IP address format. (192.168.100.1)
+
+--> We can upload objects to this buckets.
+--> Min obj size : 0 bytes.. Max Obj size: 5 TB
+--> S3 is a global service. Doesn't required region selection.
+--> While creating we need to choose the region. Data physically resides at this regions AZs. 
+
+https://s3.ap-south-1.amazonaws.com/bucketname/objectname (standard URL)
+https://bucketname.s3.ap-south-1.amazonaws.com/objectname (virtual path)
+https://bucketname.s3.amazonaws.com/objectname (virtual path)
+
+Virtual paths won't work if we have . in bucket names.
+
+To make an object public : 
+
+1. Block Public Access settings for this account : Account Level Blocking
+2. Block public access (bucket settings) : Bucket level Blocking
+--> We should make an object public, then only Object URLs works.
+** Object Ownership : ACLs enabled
+3. Make object public. (Select object --> actions --> last option --> make public using acl)
+
+S3 Free Tier ELigibility : 
+5 GB Standard Storage
+--> 2000 PUT (Upload) / 20,000 GET (Download)
+_______________________________________________________________________________
+
+
+GDrive : 100 gb plan						S3	: no pre provisioning req
+
+20 gb Daily									S3-Standard
+20 gb Infreq 								Standard-IA / OneZOne-IA
+10 gb don't know when to access				Intelligent Tier
+10 gb archive								Glacier / Glacier-DA
+
+30gb
+
+99.99% Ava
+99.999999999 % Durability
+
+
+S3 Storage Classes : 
+
+--> S3 Standard : Defualt storage class for all the data we upload to s3. Data will be available immedeatly.
+Designed to store : Frequently accessed data. 
+Availability : 99.99%,  Durability: 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Standard-IA : Data will be available immedeatly. Designed to store : infrequently accessed data
+Avai : 99.9%, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> One Zone-IA : Data will be available immedeatly. Designed to store : infrequently accessed data. Store only non-critical data
+Avai : 99.5 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : 1 AZs
+
+--> Glacier Flexible Retrieval (Formerly Glacier) : Long-term data archiving with retrieval times ranging from minutes to hours. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (1 min - 5 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Glacier Instant Retrieval : Long-lived archive data accessed once a quarter with instant retrieval in milliseconds. 
+
+--> Glacier Deep Archieve : Long-term data archiving with retrieval times ranging from 12 hrs. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (5 - 12 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+..
+S3 Intelligent Tier : If we have unknown access pattern, we can choose. 
+Avai : 99.9 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+RRS : Redused Redundancy Storage : Not Recommanded : Less durability.. 
+Durability : 99.99%, As we have less durability we have high chances to loss the data when compared to another storage classes.
+
+
+S3 Pricing : 
+--> How much data we are storing.
+--> How many GET/PUT operations (uploads/downloaded object count)
+--> Data retrivals
+
+Glacier data retrival : 
+Bulk retrieval : Typically within 5-12 hours.
+Standard retrieval : Typically within 3-5 hours.
+Expedited retrieval : Typically within 1-5 minutes when retrieving less than 250 MB.
+
+______________________________________________________________________________________
+
+Task : 
+--> Enable "Free tier alerts". Login using root user/iam user with admin permissions..
+Preferences --> Billing preferences --> Receive Free Tier Usage Alerts --> Enable and enter valid email address.
+
+Task 2 : Create an s3 bucket, Upload an object, Make object public accesable.
+
+________________
+
+If you are typing "Delete" ==> you'll get delete Marker. 
+If you are typing "perm Delete" ==> You wont get Delete marker.
+
+Delete the "Delete Market" to get your object back.
+
+_________
+
+Version : AWS maintains multiple copies in s3 bucket. 
+--> Defaultly versioning will be in Suspended state.
+
+--> When versioning is enabled on bucket, If we delete an object
+
+Versioning : HIDE
+--> S3 will show most recent uploaded object only / Current version objects.
+--> We will get a Delete Marker. 
+--> TO get object back / undo delete, Set Version to SHOW, Delete the delete marker.
+
+Versioning : SHOW
+--> If we delete an object, it deletes permanently.
+_____________________________________________________________________________________
+
+D: 22/02/2023
+
+
+Storage classes
+Versioning
+Life Cycle rules
+Replications
+Static website hosting
+Encryptions
+Bucket policy
+Improve s3 perf.
+
+
+Life Cycle Management Rule : 
+--> We can apply Rule to entire bucket
+--> We can limit rule to a prefix (Folder)
+--> We can limit rule to objects by specifing a "Tag"
+
+
+S3 Standard --> StandardIA/IT --> Glacier --> Delete
+S3 Standard --> Glacier --> Delete
+S3 Standard --> Delete
+ 
+____________________
+
+CRR / SRR : 
+--> Source bucket and destination bucket must be enabled with versioning. 
+--> Existing objects will not replicate to the destination bucket.
+--> All future / subsequent uploads will replicate to destination bucket. 
+
+RTC : Replication time control : Data replicates to destination bucket with in 15 Min. (99.99% of the data) : COST US
+
+___
+
+Data transfer from One region to another region "cost us".
+Data transfer within a region won't cost us anything.
+_______________________
+
+aws s3 sync s3://source targetpath		==> 12:00AM   (task scheduler / cron job)
+_______________________
+
+Task : Create a bucket in mumbai, Configure Versioning. 
+Create another bucker in Mumbai region only.. configure same region replication between these buckets.
+
+Task 2 : Create a Life CYcle management rule to transit current version objects from s3 standard to Delete after 2 Days.
+Transit previous version objects to Delete after 1 Day.
+
+Task 3 : Create a policy to allow everything in an AWS account, But user should be able to create a bucket in "ap-south-1" region only.
+--> Create a bucket in "mumbai", it should work... But if he try to create bucket in any other region it should fail.
+
+1. Create a policy allow anything but only on mumbai region. (copy policy from S3FullAccess/AdministratorAccess)
+2. Create an IAM user and allocate Newly created policy
+3. Login as IAM user, Navigate to S3, Try to create a bucket in mumbai, should allow.. SHould deny if you choose any other region.
+________________________________________________________________________________________________
+
+
+
+
+
+
+S3 Static Website Hostic : 
+
+--> We need to make data public read, then only our website will deliver. 
+--> Purchased Domain name should be same as Bucket name. 
+http://learnaws.co.in.s3-website.ap-south-1.amazonaws.com  ==> learnaws.co.in
+
+http status codes :
+2XX : OK/Success
+3XX : Redirection
+4XX : Client sider error
+5XX : Server sider error
+
+
+Task : Download a template from Internet. Deliver the webiste using s3 - static webiste feature.
+
+________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
