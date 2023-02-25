@@ -290,14 +290,6 @@ if you dont know bucket level/object level ; give both
 
 _______________________________________________________________________________
 
-
-Server access logging : enable logging on bucket.
-
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
-
-Cloudtrail : Data events : It allow us to log all s3 activities (Current buckets and future buckets).
-____________
-
 Event notifications : 
 
 --> SNS : Simple Notification Service : 1000 EMAILs Free Tier eligibility
@@ -306,6 +298,15 @@ Event notifications :
 
 --> Make sure you edit the SNS topic's "Access Policy to everyone".
 __________________________________________________________________________________________
+
+Object Lock : 
+--> Versioning must be enabled.
+Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+_____
 
 
 Task : Try to access s3 using 3rd party applications. (S3 browser, Cyberduck, Cloudberry explorer, winscp)
@@ -338,15 +339,14 @@ https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.ht
 
 =================================================================================
 
+D: 25/02/2023
 
+Server access logging : enable logging on bucket.
 
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
 
-
-
-
-
-
-
+Cloudtrail : Data events : It allow us to log all s3 activities (Current buckets and future buckets).
+____________
 
 Requester pays : the requester pays for requests and data transfer costs, and anonymous access to this bucket is disabled. Instead of bucket owner data requester need to pay for the data transfer & request.
 --> Anonomus access disables once we enable this feature.
@@ -355,17 +355,9 @@ _______
 Transfer acceleration : Uses Edge locations for data transfer. (COST US)
 S3 Transfer Acceleration is not supported for buckets with periods (.) in their names
 
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=us-east-1&origBucketName=avinash
 
-https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=avinash2
-
-Object Lock : 
---> Versioning must be enabled.
-Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
-
-Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
-
-Compliance : No users can overwrite or delete protected object versions during the retention period.
-_____
+_____________________
 
 Performance : 
 3500 PUT Object per second per prefix
@@ -375,7 +367,6 @@ Performance :
 --> Use more prefixes
 
 ________________________________________________________________________________________
-
 
 
 Pricing : https://calculator.aws/
@@ -421,12 +412,10 @@ ___
 AWS Direct Connect : Dedicated connection between on-premise/local environment to AWS environment. 3-4 weeks time required. We need to choose the required bandwidth. 
 --> Airtel, jio, sify
 
-Site-to-site VPN :
+Site-to-site VPN : Happens over the internet.
 
 
 
 https://aws.amazon.com/premiumsupport/knowledge-center/s3-console-access-certain-bucket/
 
-
-https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=us-east-1&origBucketName=avinash
 
