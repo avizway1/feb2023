@@ -1,0 +1,166 @@
+========================================================================================================================================
+
+EC2 : Elastic Compute Cloud : Server class :  Region specific service
+
+CPU, Memory/RAM, Storage/HDD/SDD, Network (wifi, bt, NIC/ENI)
+
+Instance = Server = Azure VM = Compute engine = box
+
+CLient Class OS : Win7, win10
+Server Class OS : Windows server 2008 r2, 2012, 2012 r2, 2016, 2019
+
+On-Demand ec2 instances : When we have unpredictable workloads.. Testing our application for the firsttime.. "FREE TIER ELIGIBILITY"
+Pricing : /Sec (With min of 60 Sec)
+
+Reserved ec2 instances : When out workload is stable and predictable.. For longer durations.. We can reserve the capacity for 1yr/3yr.. "NO FREE TIER ELIGIBILITY""
+
+	Standard RI : We cannot change config during the period. 
+	Convertable RI : We can change the config during the period.
+	Scheduled RI : if we have persistant/repeated requests. (N V)
+
+Pricing : 
+Full Upfront : Pay 100% as onetime. 
+Partial upfront : Pay 30-50% as onetime, Then remaining amount pay monthly basis with redused hourly price, based on usage.
+No upfront : Pay everything monthly basis. 
+--> AWS Marketplace : We can sell our resources. 
+
+Spot instances : When we have flexible start/stop durations.. No Criticaldata/ application is delovering..!!  Test env.. Bid your price against AWS pricing. If our quoted price is euqual or greater than aws pricing, we will get the instance.
+--> high confi server at low cost for temp requ.
+"NO FREE TIER ELIGIBILITY"
+--> quoted price is euqual or greater than aws pricing, we will get the instance.
+--> If price increased, AWS will terminate(delete) our instance.
+
+1 hr 50 Min : Price increased, AWS Terminated our Instance : 1 Hr
+1 hr 50 Min : Price not increased, You Terminated our Instance : 1 Hr 50 Min
+
+
+_______________
+
+Task : create a policy to Allow an IAM user to work only on specific region (ap-south-1).
+_______________
+
+
+Only On-Demand ec2 instances comes under free tier eligibility.
+** Fix to one region. ap-south-1
+
+Windows ec2 instance launch : 
+
+Step 1 : Choose an AMI (Amazon Machine Image)	: Operating System : Windows server 2016 base
+
+Step 2 : Choose an Instance type 		: vCPU, Memory(RAM), Network perf
+==> t2.micro
+
+
+General Purpose : Stable/balanced performance of compute, memory and network resources.
+Type : t2, t3, t4, m5
+
+Compute Optimized : We will get more CPU performances from these instances. We will have high perf processors in these instances.
+Type : c4, c5, c6  (Compute / CPU)
+
+Memory Optimized : We will get more RAM perf. Workloads required to process large set of data via memory.
+Type : r4, r5, r6, x1, z1, u1 (RAM)
+
+GPU Optimized / Accelerated computing : We will get more graphic processings, Efficient for data pattern matching, High level gaming.
+Type : p2, p3, p4, g3, g4, f1
+
+Storage optimized : we will get more Storage/ Hard Disk performance. FOr the application required more IOPS, we use this types.
+Type : d2, d3, i3
+
+m5.large	: 2 CPU, 8 RAM
+c5.xlarge	: 4 cpu, 8 ram
+t3.medium	: 2 cpu, 4 ram
+
+Maintenance windows : Sat 03 AM IST.. : Greenzone window : CRQ (Change Request)
+
+Step 3 : Configure additional settings
+	VPC, ROles, userdata
+
+	Instance Termination protection : Enable (Protect against accidental termination)
+	Shutdown behaviour : STOP
+
+Step 4 : Choose storage
+
+	root volume : volume that contains Operating system : 30 gb for windows
+
+Step 5 : Add Tags : COmbination of Key and Value pairs.
+
+Name : 
+Project : 
+Platform : Windows / Linux
+COst center : AAZAA
+
+Step 6: Configure Security Group : Security group acts as Firewall at Instance level.
+
+OS Ports/protocols : 0 - 65535
+
+Windows : RDP : 3389 : 
+Linux : SSH : 22
+Webserver : http : 80
+Secure web : https : 443
+mysql : 3306
+mssql : 1433
+NFS : 2049
+
+source : From where you want to connect to this instance.
+MyIP : It picks currently connected network ip address. No one can connect to the server apart from this particular network users.
+Custom : We can give any network IPs. 
+Anywhere : Anyone with valid credentials can connect to the server. (username and pwd)
+
+Step 7 : Review and launch with keypair.
+
+Keypair : Key pair contains public key and private key. (.pem)
+
+AWS Holds the Public Key. This will be stored in our launched ec2 instances.
+Customer/WE holdes the Private key. Used to decrypt/generate the password for initial instance connect.
+
+Public IP : Unique across the globe : Use this to connect to your instance.
+Private IP : Unique with in the aws network : 
+
+COnnect to Windows Instance :
+
+--> Open "run" , type "mstsc" , CLick enter.. Provide instance "Public IP".
+--> Choose instance "connect', choose "RDP Client", "Download remote desktop file"
+
+MAC : https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12
+
+
+start/stop : 10 days work.. 1 month.. : Stop, Start the server
+Terminate : Delete the server..
+
+
+Windows : No addl softwares required..  Click on start --> search "remote desktop connection"
+Computername/ip : provide public IP
+Username : Administrator
+Pwd : get it using keypair
+
+==> open run (Windows Key + R) --> type "mstsc"
+Computername/ip : provide public IP
+Username : Administrator
+Pwd : get it using keypair
+
+==> Select Instance, Click on "connect" and Select "RDP Client", click on "Download remote desktop file", open the downloaded file.
+
+
+Mac : Goto appstore --> search for "microsoft remote desktop" software.
+Computername/ip : provide public IP
+Username : Administrator
+Pwd : get it using keypair
+
+________________________
+
+Task : Launch windows ec2 instance and using keypair get connect to ec2 instance.
+
+Task 2 : Change the password of "Administrator", Disconnect from the instance. Now try to login to ec2 instance using "keypair pwd", "Custom password".
+
+Task 3 : "Create a new user" in ec2 instance and provide him "Local administrator rights", also provide him "Remote desktop permissions".. Take a session with this user along with administrator.
+
+____
+
+FREE TIER : 750 Hrs/Month t2.micro windows instance (ondemand)
+750 Hrs/Month t2.micro Linux instance (ondemand)
+
+1 instance x 24 hrs x 31 days = 744 Hrs 	--> 750 Hrs Free tier
+2 instance x 24 hrs x 16 days = 768 Hrs	
+
+_________________________________________________________________________________________
+
