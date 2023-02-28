@@ -68,7 +68,7 @@ Type : d2, d3, i3
 
 m5.large	: 2 CPU, 8 RAM
 c5.xlarge	: 4 cpu, 8 ram
-t3.medium	: 2 cpu, 4 ram
+t4g.medium	: 2 cpu, 4 ram
 
 Maintenance windows : Sat 03 AM IST.. : Greenzone window : CRQ (Change Request)
 
@@ -154,6 +154,8 @@ Task 2 : Change the password of "Administrator", Disconnect from the instance. N
 
 Task 3 : "Create a new user" in ec2 instance and provide him "Local administrator rights", also provide him "Remote desktop permissions".. Take a session with this user along with administrator.
 
+Task 4 : Install "IIS" and deliver a webpage for everyone.
+
 ____
 
 FREE TIER : 750 Hrs/Month t2.micro windows instance (ondemand)
@@ -163,4 +165,84 @@ FREE TIER : 750 Hrs/Month t2.micro windows instance (ondemand)
 2 instance x 24 hrs x 16 days = 768 Hrs	
 
 _________________________________________________________________________________________
+
+
+
+
+
+Linux OS : Amazon Linux 2 OS.. RHEL, Ubuntu, Suse, Kali
+
+RedHat, CentOS --> Amazon Linux 
+
+Step 1 : Choose an AMI (Amazon Machine Image)	: Operating System : Amazon Linux 2 
+	
+Step 2 : Choose an Instance type : t2.micro	: vCPU, Memory(RAM), Network perf
+
+Step 3 : Configure additional settings
+	VPC, ROles, userdata
+
+	Instance Termination protection : Enable
+	Shutdown behaviour : STOP
+
+Step 4 : Choose storage
+
+	root volume : volume that contains Operating system : 8/10 gb for linux
+
+Step 5 : Add Tags : COmbination of Key and Value pairs.
+
+Name : 
+Project : 
+Platform : Windows / Linux
+Cost center : AAZAA
+
+Step 6: Configure Security Group : Security group acts as Firewall at Instance level.
+
+Linux : SSH : 22 : Anywhere
+Webserver : http : 80
+Secure web : https : 443
+
+Step 7 : Review and launch with keypair.
+
+Keypair : Key pair contains public key and private key. (.pem)
+
+How to Connect to Linux Instance :
+
+--> Select Instance, click on "Connect" --> "ec2 instance connect" --> "ec2-user" --> Connect. (We don't use this in realtime)
+___
+
+--> We can use windows Cmd prompt to connect to Linux Instance : Install "OpenSSH" in your laptop. 
+	--> apps&features --> optional features --> openssh client--> Enable/Install.
+
+==> https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
+
+==> ssh -i keypair.pem ec2-user@publicip/dns
+ssh -i "linuxkp.pem" ec2-user@ec2-3-108-53-198.ap-south-1.compute.amazonaws.com
+
+__
+
+Putty : Putty Don't support .pem format files.. Putty need .ppk (putty private key) file format. 
+1 --> generate a .ppk file, before launching linux instance and use the .ppk file to connect using putty application.
+2 --> Convert the existing .pem file to .ppk file using PuttyGEN application. 
+
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html	--> Download putty
+
+__
+
+Install "GIT for Windows", Then use GIt terminal to connect. 
+
+https://git-scm.com/download/win
+
+--> go to the location where we have the keypair, "Git Bash here"
+
+
+Bad Permissions error :  chmod 400 keypairname.pem  (Works with GIT for Windows)
+
+https://stackoverflow.com/questions/8193768/unprotected-private-key-file-error-using-ssh-into-amazon-ec2-instance-aws
+___________________________
+
+Linux Instances : Default username : ec2-user  / redhat / ubuntu
+
+Task : Launch Linux ec2 instance and get connect to it.
+
+________________________________________________________________________________________
 
