@@ -167,9 +167,6 @@ FREE TIER : 750 Hrs/Month t2.micro windows instance (ondemand)
 _________________________________________________________________________________________
 
 
-
-
-
 Linux OS : Amazon Linux 2 OS.. RHEL, Ubuntu, Suse, Kali
 
 RedHat, CentOS --> Amazon Linux 
@@ -252,5 +249,59 @@ https://www.udemy.com/course/jenkinswithavinash/?couponCode=FEB2023
 https://www.udemy.com/course/linuxwithavinash/?couponCode=FEB2023
 
 
+whoami		--> tells us as what user we are working.
+sudo		--> allow user to execute the command with root level permissions
+sudo su		--> Switch to root user
+exit		--> Exit from root user to ec2-user
+clear		--> Clears the screen
 
+ls			--> List the files/folders
+ls -a		--> List all including hidden files
+pwd			--> Print working directory
+mkdir		--> Create a Directory/Folder
+touch 		--> o bytes file/ plain file
+cd			--> Change directory
+rm -rf foldername/	--> Delete a directory that contains files
+
+copy and paste :  cp
+cut and paste  :  mv
+
+to rename a file we use "mv" command :  mv oldfilename newfilename
+
+_________________________
+
+vim / vi / nano
+
+VIM Editor : 
+
+vim filename	--> Open this file in VIM editor
+
+Press I		--> INSERT Mode
+Press ESC		--> ReadOnly Mode
+:wq				--> Write and Quit (Write changes to file and quit the editor)
+:q!				--> Quit the Editor without writing the changes
+_____________________________________________________________________________________
+
+https://www.udemy.com/course/linuxwithavinash/?couponCode=FEB2023
+____________________________________________________________________________________
+
+Req: Make this linux Instance as Web Server (Apache).
+
+rpm : Redhat package manager
+yum : Yellowdog Update manager
+
+yum install httpd -y
+service httpd status			--> httpd webserver service status
+service httpd start/stop/restart
+chkconfig httpd on				--> Makes httpd as logon service.
+
+path : /var/www/html/
+
+cd /var/www/html/
+
+Tool to Move the files to amazon linux ec2 instance : WinSCP
+
+________________________________________________________________________________________
+
+How to deal with Volumes
 
