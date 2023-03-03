@@ -305,3 +305,170 @@ ________________________________________________________________________________
 
 How to deal with Volumes
 
+root volume : COntains OS : gp2,gp3, io1, io2 and magnetic
+
+IOPS : Input and output Operations per second
+
+GP2, Gp3 : general Purpose :SSD: Suitable for most of the common workloads.
+io1, io2 : Provisional IOPS :SSD: Gives best perf am,ong all storage options. 
+sc1 ($), st1($$) : HDD : wont support boot : Best throughput values. : log processing/bigdata
+magnetic : standard : We dont use this.. : Cheapest storage 
+
+Windows : FAT, NTFS and ReFS
+Linux : ext3, ext4, xfs
+
+EBS : Elastic Bloc Storage : Block based storage : Designed to run OS.. 
+
+root : SSD and magnetic is supported.
+Addl volume : SSD, HDD and magnetic
+
+Step 4 : CHoose Storage
+
+--> EBS : Elastic Block Storage
+SSD / HDD / Magnetic
+
+
+root Volume : COntains OS : gp2, gp3, io1, io2 and standard/magnetic
+Additional volume : all root supported + st1, sc1
+
+General Purpose SSD : (gp2 / gp3) : Low latency interactive applications, Dev and test environment..!!
+Min : 1 GiB, Max: 16 TiB... Max IOPS: 16,000 IOPS
+gp2 --> works 1 : 3 ration (1 gb volume = 3 iops), with min of 100..
+
+for gp3, we have an advantage, we can mention/choose required IOPS count.
+
+__
+
+Provisioned iops : (io1 & io2) : workload that requires Specific IOPS count.. or if we need more than 16,000 iops for our ec2 instance.. I/O Intensive database workloads..
+Min : 4 GiB, Max: 16 TiB... Max IOPS: 64,000 IOPS
+--> It provided highest performance among all. 
+
+io2 Block Express volume : Min : 4 GiB, Max: 64 TiB...
+Supports 256,000 IOPS.. 
+__
+
+Magnetic : Standard : Less freq accessed data, Low cost storage solutions.. 
+Min : 1 GiB, Max: 1 TiB...
+__
+
+Throughput optimized HDD : st1 : Bigdata, Data warehousing, log processing.. 
+Size : Min 125 GiB - 16 TiB.. IOPS : 500.. Throughput : 500 MB/S..
+
+Cold HDD : sc1 : THroughput orientes storages, but with Less Frequently accessed.. Lower cost than st1.. 
+Size : Min 125 GiB - 16 TiB.. IOPS : 250.. Throughput : 250 MB/S..
+
+
+Free Tier : 30 gb Gp2 and standard storage.. 
+
+--> 20% of volume size (or) 5 gb.. WHichever is highest
+
+** Need to perform OS level operations to make additional volumes available.
+--> Disk Management --> diskmgmt.msc --> choose volume --> make it online --> Initilize disk --> SImple volume --> NTFS/FAT --> Create
+
+
+Windows : FAT, FAT32, NTFS, ReFS
+Linux : ext3, ext4, xfs
+
+
+grab the name of new volume : /dev/xvdb
+
+lsblk		--> List block based devices
+df -Th		--> List the available volumes
+
+/dev/xvda1	--> root volume (/)
+/dev/xvdf	--> new Volume name 
+
+In windows OS, we mount new volumes to drive letters.. But in Linux OS, We mount volumes to Directory. 
+
+mkdir newvolume
+
+file -s /dev/xvdf  	--> If this command returns with "data", no file system.
+			--> If this returns ext3/xfs filesystem.. We have a file system.
+
+
+mkfs -t xfs /dev/xvdf		--> Make file system and write it to Additonal volume
+
+mount /dev/xvdf newvolume/	--> mount addl volume to directory
+
+
+
+Task 1 : Launch an amazon linux, make it as webserver and deliver custom webcontent.
+
+Task 2 : Create a 2gb volume, attach it to ec2 instance and make it available. 
+
+df -Th ==> should show your 2 gb volume.
+
+=================
+
+
+
+
+--> Above mount is temp mount only.. it won't available after the instance reboot.
+--> To make this volume perm mount to the directory, Add entry in "/etc/fstab" file.
+--> Get the entry information from "/etc/mtab" file. 
+
+--> cat /etc/mtab		--> Grab the entry related to newly added addl volume
+
+/dev/xvdb /home/ec2-user/newvolume xfs rw,relatime,attr2,inode64,noquota 0 0
+
+--> vim /etc/fstab.. Write the above entry, save and quit the editor. (Do not edit the existing entry).
+
+mount -all
+__________
+--> Increase the volume size the "Cosole" first, then execute the below command..!!
+
+We can use "xfsprogs" to increase existing volume size. 
+
+yum install xfsprogs
+
+--> xfs_growfs -d /volume-Mountpoint
+--> xfs_growfs -d /home/ec2-user/newvolume
+
+_________
+
+Task : Launch an ec2 instance, Create a 1gb volume, associate it with ec2 instance.. Make 1 gb volume available at os level and write some data into it. (Reboot and verify)
+
+Task 2 ; Increase the size of 1gb volume to 2 gb and verify with df -Th
+
+Task 3 ; Launch another ec2 instance in same AZ as existing ec2 instance.. Detach the volume from instance 1 and attach it to newly launched ec2 instance. You should be able to see all the data.
+
+
+===========================================================================
+
+--> Increasing volume is possible, But redusing volume is not possible.
+
+
+To verify File system status from a volume : file -s /dev/xvd*
+--> If out put : data : no file system
+
+new volume name : /dev/xvdf
+
+Step 1 : Write File system			mkfs -t xfs /dev/xvdf
+Step 2 : Create a folder			mkdir newvolume
+Step 3 : Mount volume to folder		mount sourcefolder volumename		mount /dev/xvdf newvolume 
+
+
+New volume name : /dev/xvdg
+
+step 1 : mkfs -t xfs /dev/xvdg
+step 2 : mkdir 2gbvolume
+step 3 : mount /dev/xvdg 2gbvolume/
+
+Step 4 : Grab the entry information from /etc/mtab file
+
+/dev/xvdf /home/ec2-user/newvolume xfs rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota 0 0
+/dev/xvdg /home/ec2-user/2gbvolume xfs rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota 0 0
+
+Step 5 : Edit the "/etc/fstab" file and write the information grabbed from "/etc/mtab" file.
+
+===================================================================================================================
+
+
+
+
+
+
+
+
+
+
