@@ -464,6 +464,15 @@ Step 5 : Edit the "/etc/fstab" file and write the information grabbed from "/etc
 ===================================================================================================================
 
 
+Task : Launch a Linux instance with 8 gb root volume.. Add 2gb volume and make it available and write some data into it. (Perm mount).. 
+
+launch another ec2 instance in same AZ as existing instance.. Detach that 2 gb volume from existing instance and atach it to new instance.. and verify the data.. 
+
+Increase this volume size to 3 gb and make it avaiulabvle at OS level . df -Th ==> should show 3 gb.
+
+
+
+Task 2 : Do same task on windows.
 
 
 
