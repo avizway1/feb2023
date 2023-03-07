@@ -528,19 +528,9 @@ Task 1 : Launch an ec2 instance in ap-south-1a.. Create a "New volume with 1 gb 
 Task 2 : Launch Another ec2 instance in ap-south-1b..
 Get the 2gb volume data from instance 1a to newly launch 1b ec2 instance.. Make Same volume available to "1b instance"..!!
 
-
-
-
-
-
-
-
-
-
 ______________________________________________________________________________________
 
 D: 
-
 
 SOP : Standard Operational Procedure : 
 
@@ -557,7 +547,10 @@ Fast snapshot restore : Enable fast snapshot restore to ensure that volumes crea
 Task 1 : https://aws.amazon.com/blogs/storage/automating-amazon-ebs-snapshot-and-ami-management-using-amazon-dlm/
 
 
-D:
+
+______________________________________________________________________________________
+
+D:07/03/2023
 
 Scenario : 10 ec2 instances.. AV, MS Office, Custom WP, CUstom OS users, Applications, IIS.. 
 
@@ -579,16 +572,30 @@ Similar to Snapshots..
 
 ______________________________________
 
-Task : Launch a windows ec2 instance.. Change ADMINISTRATOR PASSWORD, Change wallpaper, Change timezone.. Stop instance and Create a GoldenAMI.
+Task : Launch a windows ec2 instance.. Change ADMINISTRATOR PASSWORD, Change wallpaper, Change timezone.. Install IIS, write custom data to c:/inetpub/wwwroot/, then Stop instance and Create a GoldenAMI.
 --> Launch an ec2 instance from GAMI, get connect to it and verify all changes present or not.!!!
 
 
-Task 2 : Launch Linux ec2 instance, Make it as webserver.. Add custom webpages.. Create a Golden AMI and Launch instance from GAMI and test output. 
+Task 2 : Launch Linux ec2 instance, Make it as webserver.. Add custom webpages.. Create a 2gb volume and associate it make it perm mount.. then Create a Golden AMI and Launch instance from GAMI and test output. 
 
 Task 3 : How to setup password authentication to ec2-user user instead of keypair authentication.
 https://comtechies.com/password-authentication-aws-ec2.html
 
 _________________________________________________________________________________________
+
+
+
+Elastic IP : Dedicated/fixed IP for our ec23 instance. "COST US".. NO FREE TIER ELIGIBILITY
+Generally if you stop and start an ec2 instance, AWS allocate a new public IP address for our instance. 
+Top have a fixed public IP, Create an Elastic IP and associate with ec2 instance. 
+
+
+ENI : Elastic Network Interface : Addl Network interface for our instance. 
+Defaultly we will get one for every instance and we cant delete that.
+
+
+
+
 
 
 
