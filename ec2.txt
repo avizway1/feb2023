@@ -584,7 +584,6 @@ https://comtechies.com/password-authentication-aws-ec2.html
 _________________________________________________________________________________________
 
 
-
 Elastic IP : Dedicated/fixed IP for our ec23 instance. "COST US".. NO FREE TIER ELIGIBILITY
 Generally if you stop and start an ec2 instance, AWS allocate a new public IP address for our instance. 
 Top have a fixed public IP, Create an Elastic IP and associate with ec2 instance. 
@@ -592,6 +591,51 @@ Top have a fixed public IP, Create an Elastic IP and associate with ec2 instance
 
 ENI : Elastic Network Interface : Addl Network interface for our instance. 
 Defaultly we will get one for every instance and we cant delete that.
+
+_________________________________________________________________________________________
+
+D: 09/03/2023
+
+--> Cloud watch : Service to monitor all AWS resources i.e; s3, ec2, rds.. 
+--> We can monitor CPU, Disk and network for ec2 instance.
+** With Default metrics, we cannot monitor MEMORY Utilisation. 
+--> We can install an CloudWatch agenet and monitor. 
+
+--> We have two typ0es of monitorings in AWS.
+==> Basic Monitoring : Free, Enabled by defaultly. 5 Minutes is monitoring interval.
+==> Detailed Monitoring : COST US, Need to enable explicitlty, 1 minute is monitoring interval.
+
+Vertical Scaling : Upgrading / Adding more resources to same Instance. i.e; from t2.micro to t3.medium
+
+To perform vertical scaling in AWS, First stop the ec2 instance, then only we can upgrqade it.
+
+
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my first webserver</h1>" > /var/www/html/index.html
+
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my Second webserver</h1>" > /var/www/html/index.html
+
+
+ELB : Elastic Load Balncing : Service Name
+
+ALB : Application Load Balancer
+NLB : network Load balancer
+
+
+
+
+
+
+
 
 
 
