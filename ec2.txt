@@ -1,3 +1,8 @@
+
+AWS Online LAB Sessions @ 2PM to 4PM (Mon to Sat)
+Meeting Link: https://zoom.us/j/83939072968
+Password: 652247
+
 ========================================================================================================================================
 
 EC2 : Elastic Compute Cloud : Server class :  Region specific service
@@ -609,7 +614,7 @@ Vertical Scaling : Upgrading / Adding more resources to same Instance. i.e; from
 
 To perform vertical scaling in AWS, First stop the ec2 instance, then only we can upgrqade it.
 
-
+** Dont use same Security group for your ec2 instance and Load balancer.
 
 #!/bin/bash
 yum install httpd -y
@@ -630,6 +635,58 @@ ELB : Elastic Load Balncing : Service Name
 ALB : Application Load Balancer
 NLB : network Load balancer
 
+____________________________________________________________________________________
+
+
+D: 10/03/2023
+
+Vertical Scaling : Upgrading same instance resources.. t2.micro --> c5.2xlarge
+Horizantal Scaling : Distribute application load to multiple ec2 instances.. 
+
+Classic ELB : Layer 4/7 LB.. : Outdated.. : http, https, tcp, udp.. 
+Application ELB : Layer 7 ELB.. : http and https
+Network ELB : Layer 4 ELB.. : TCP, UDP, TLS 
+Gateway ELB : GENEVE / 3rd party security virtual applicances.. 
+
+**Please select at least two Subnets in different Availability Zones to provide higher availability for your load balancer.
+
+
+For ELBs, We will get DNS Endpoint..
+Roundrobin algorithm.. 
+
+If you want to view IP address of an ELB, 
+--> Navigate to "Network interfaces" and observe, You can get IP of ELB.
+--> nslookup "ELB-DNS-NAME"
+___________________________________________________
+
+Target Group : Each target group is used to route requests to one or more registered targets. When you create each listener rule, you specify a target group and conditions. When a rule condition is met, traffic is forwarded to the corresponding target group.
+
+Application ELB : http and https
+
+Application Load balancing algorithm : 
+--> Round robin
+--> Least outstanding requests
+
+--> We cannot assign a dedicated IP address for our Application ELB.
+
+Network ELB : TCP.. 
+--> Flow Hash algorithm.
+--> We CAN assign a dedicated IP address for our network ELB.
+
+Application LB Supports path based routing, also supports Microservices.
+
+millions req/sec : NLB
+
+ELB Access Logs : Logging on ELB. Destination is s3.
+___________________________________________________________________
+
+Free Tier : 750 hrs/month
+
+-----------------------
+
+Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. (OPTIONAL)
+Task : Practice application ELB / ALB with multiple TGs. (80, 8080, 8888)
+--> Make sure you configure Pipeline mechanism between your ec2 instances and ELB.!!
 
 
 
