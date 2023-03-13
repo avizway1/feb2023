@@ -688,6 +688,61 @@ Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. 
 Task : Practice application ELB / ALB with multiple TGs. (80, 8080, 8888)
 --> Make sure you configure Pipeline mechanism between your ec2 instances and ELB.!!
 
+___________________________________________________________________
+___________________________________________________________________
+
+
+D: 11/03/2023
+
+
+ASG : Auto scaling group.
+
+1. Create a GoldenAMI
+2. create an ELB
+3. Create ASG
+	3.1 Create launch config : AMI, Instancetype, network/vpc, keypair
+	3.2 Create scalings/asg : Manual scaling/ automatic scaling, ELB, Desired count..
+	
+
+ASG : Auto Scaling Group :
+
+--> DYnamic (Step/Simple) Load 
+--> Scheduled scaling : 
+--> Manual : 
+
+
+ScaleIN : Remove the instance from ASG
+ScaleOut : Add the instances to ASG.
+
+How ASG will choose the instance to terminate if any ScaleIN action triggered..!! 
+
+ASG Termination policy : refer to the image.
+
+
+t2.micro --> Current configuration.. 
+t2.nano..??? How you can do this with 0 downtime..!! 
+
+
+Create a new launch configuration/template.. Associate this with ASG. Terminate the existing instance.. Now new instance will come with updated launch config settings.
+(Set Desired capacity to 2)..!!! 
+
+
+Task : 
+Create an ASG with a V1 Launch config.. Launch with Desired capacity as 2.. Test it.. 
+
+Configure Alarm to set Desired capacity as 1, when cpu utilisation is =<10. 
+
+Configure scheduled scaling to set DC as 3 instance at specific time and test it. 
+
+________
+
+1 : Create a Golden AMI
+2 : Create a ELB
+3 : Create a Launch COnfig
+4 : Create an ASG with Fixed (2) and test it
+5 : Confiure Scheduled scaling.
+6 : Configure Simple scaling (low usage scaling)
+7 : Configure Versions for Launch config. 
 
 
 
