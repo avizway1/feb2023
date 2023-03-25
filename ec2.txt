@@ -946,4 +946,18 @@ Task : Change the timezone of an windows ec2 instance using ssm run command. (tz
 
 ________________________________________________________________________________________________
 
+D: 24/03/2023
+
+
+
+
+
+
+
+
+
+
+
+
+
 
