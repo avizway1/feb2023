@@ -111,12 +111,14 @@ Public Subnet : Internet facing.. : ELB, Jump/ Bastian Host..
 Private Subnet : DBs, Application, Web servers.. 
 
 Step 1 : Create a VPC.
-	VPC Name : CustomVPC		VPC CIDR : 192.168.0.0/23
+	VPC Name : CustomVPC		VPC CIDR : 192.168.0.0/20
 
 Step 2 : Create Subnets within CustomVPC. 
 
-Name : Public Subnet : ap-south-1a : 192.168.0.0/25
-Name : Private SUbnet : ap-south-1b : 192.168.0.128/25
+Name : Public Subnet 1a : ap-south-1a : 192.168.0.0/23
+Name : Public Subnet 1b : ap-south-1b : 192.168.2.0/23
+Name : Private SUbnet 1a : ap-south-1a : 192.168.4.0/23
+Name : Private Subnet 1b : ap-south-1b : 192.168.6.0/23
 
 Step 3 : Create an Internet Gateway and associate with CustomVPC.
 --> One VPC can contains one IGW.
