@@ -154,8 +154,19 @@ PublicRoute : We need to associate InternetGateway.
 PrivateRoute without internet : Don't add NAT.
 PrivateRoute With Intenet : Create NAT Gateway and add NAT Gateway.
 
+_____________
 
-_________________
+Enable Logging on VPC : 
+Flow Logs: We can enable flowlogs at 
+--> VPC Level
+--> Subnet Level
+--> Instance Level
+
+We can choose destination as 1. S3 bucket 2. Cloudwatch Logs groups.
+
+_____________________________________________________________________________________
+
+D: 29/03/2023
 
 
 VPC NAT Gateway (NO FREE TIER ELIGIBILITY): Is designed to provide Internet to private Subnet resources. NAT always runs in custom VPCs public subnet. We need to generate an EIP (Elastic IP). 
@@ -175,15 +186,6 @@ NAT Instance : Now a days we are not using it.  It is an ec2 instance runs in cu
 
 ____________________________________________________________________________________
 
-Enable Logging on VPC : 
-Flow Logs: We can enable flowlogs at 
---> VPC Level
---> Subnet Level
---> Instance Level
-
-We can choose destination as 1. S3 bucket 2. Cloudwatch Logs groups.
-
-_____________
 
 NACL : Network Access Control List : We can allow/deny traffic at Subnet level/AZ level using this NACLs.
 --> We need to takes care about the inbound rules and outbound rules.
