@@ -74,6 +74,7 @@ AWS Shiled / AWS Shieled advanced : Designed to protect our resources from DDoS 
 Shield Enabled for all the aws account. 
 Shield advanced cost us 3000$/Month.. AWS Team monitor the DDoS attack/traffic.
 
+
 ___
 
 SMS : Server Migration Service : 
@@ -92,12 +93,17 @@ SMS with VMWARE : https://www.youtube.com/watch?v=Vx9lRRY-shg
 Database migration : https://www.youtube.com/watch?v=iRhJDGp-ew8 (OLD)
 
 
+==============================================================================
+
 Task : Launch an ec2 instance in Mumbai region.. Migrate this ec2 instance from mumbai region to N Virginia region using "CloudEndure Migration".
 
+Video : https://youtu.be/SXuOjfKpIrs
 
 
 
-https://avinash.s3.amazonaws.com/aws.pdf
+Task 2 : Add Cloudfront Distribution to the Project 1 resources.
+
+
 
 
 
@@ -109,7 +115,7 @@ https://avinash.s3.amazonaws.com/aws.pdf
 
 3. Launch an ec2 instance using cloudformation template. While launching use userdata to execute the commands and make post 80 and 22 open for everyone. Deploy it and test it.
 
-Do the above tasks with the help of chatgpt also. 
+Do the above tasks with the help of chatgpt, if required. 
 
 
 
