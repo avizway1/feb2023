@@ -96,7 +96,7 @@ you can see/find only org joined aws accounts in SSO.
 
 _____________________________________________________________________________________
 
-
+D: 12/04/2023
 
 Codecommit
 CodeDeploy
@@ -107,6 +107,20 @@ codebuild
 
 ________________
 
+Create an IAM user, Make sure he has "Adminaccess / Codecommit full access", Generate "programatic keys (Accesskeyid&secretaccesskey)" and configure it in your local laptop.
+
+aws configure
+accesskey : 
+secretaccesskey : 
+region : ap-south-1
+output :  
+
+You need to have some softwares. 
+1. Install Python
+2. Install git
+3. install grc : pip install git-remote-codecommit
+
+
 git add .
 git status
 git commit -m "commit msg"
@@ -116,8 +130,14 @@ git clone
 
 Task : With shared code, perform CICD deployment.
 
+GIT : 
 https://www.youtube.com/watch?v=rtI26X6FJX0&list=PLneBjIzDLECkdgoinrTO7D519zgPEmcte
 
+Linux : 
+https://www.udemy.com/course/linuxwithavinash/?couponCode=APR2023
+
+Jenkins : 
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=APR2023
 _________________________________________________________________________________________
 
 ECR : Elastic Containers Repository : Place to store container images.
